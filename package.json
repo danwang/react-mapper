@@ -1,0 +1,41 @@
+{
+  "name": "@danwang/retainer",
+  "version": "0.1.1",
+  "main": "dist/retainer.umd.js",
+  "module": "dist/retainer.es5.js",
+  "typings": "dist/types/retainer.d.ts",
+  "scripts": {
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+    "lint": "tslint --project tsconfig.json",
+    "jest": "jest --config jestconfig.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/enzyme": "^3.1.9",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
+    "@types/invariant": "^2.2.29",
+    "@types/jest": "^22.2.0",
+    "@types/node": "^9.4.7",
+    "@types/react": "^16.0.40",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "invariant": "^2.2.4",
+    "jest": "22.1.4",
+    "prettier": "^1.11.1",
+    "rollup": "^0.57.1",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.12.0",
+    "ts-jest": "22.0.1",
+    "tslint": "^5.7.0",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-react": "^3.2.0",
+    "typescript": "^2.7.2"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0"
+  },
+  "description": "A tool to compose React render prop components.",
+  "repository": "git@github.com:danwang/retainer.git",
+  "author": "Dan Wang <github@danwanf.com>",
+  "license": "MIT"
+}
