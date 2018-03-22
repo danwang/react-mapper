@@ -36,6 +36,8 @@ export class Environment<T> {
     ));
   };
 
+  toComponent = (): Consumer<T> => this.ConsumerComponent;
+
   toReactElement = <U extends React.ReactElement<any>>(
     this: Environment<U>
   ): React.ReactElement<any> => {
