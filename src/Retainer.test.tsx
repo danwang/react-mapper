@@ -1,4 +1,4 @@
-import Environment from "./Environment";
+import Retainer from "./Retainer";
 import * as React from "react";
 import * as invariant from "invariant";
 import * as Enzyme from "enzyme";
@@ -32,11 +32,11 @@ const setup = () => {
   return { changers, Consumer };
 };
 
-describe("Environment", () => {
+describe("Retainer", () => {
   test("It renders and responds to changes in value", () => {
     const { changers, Consumer } = setup();
-    const environment = Environment.make(Consumer).map(v => <div>{v}</div>);
-    const wrapper = Enzyme.mount(environment.toReactElement());
+    const retainer = Retainer.make(Consumer).map(v => <div>{v}</div>);
+    const wrapper = Enzyme.mount(retainer.toReactElement());
 
     expect(wrapper.text()).toBe("default");
     expect(changers.length).toBe(1);
@@ -47,16 +47,16 @@ describe("Environment", () => {
   describe("flatMap", () => {
     test("It works with multiple values", () => {
       const { changers, Consumer } = setup();
-      const env1 = Environment.make(Consumer);
-      const env2 = Environment.make(Consumer);
-      const environment = env1.flatMap(value1 =>
-        env2.map(value2 => (
+      const ret1 = Retainer.make(Consumer);
+      const ret2 = Retainer.make(Consumer);
+      const retainer = ret1.flatMap(value1 =>
+        ret2.map(value2 => (
           <div>
             {value1}/{value2}
           </div>
         ))
       );
-      const wrapper = Enzyme.mount(environment.toReactElement());
+      const wrapper = Enzyme.mount(retainer.toReactElement());
 
       expect(wrapper.text()).toBe("default/default");
       expect(changers.length).toBe(2);
